@@ -1,7 +1,7 @@
 import { POST_SMURF_START, POST_SMURF_SUCCESS, POST_SMURF_ERROR} from '../actions/smurf';
 
 const initialState = {
-    smurfs: '',
+    smurfs: [],
     loading: false,
     err: ''
 }

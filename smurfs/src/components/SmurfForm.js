@@ -36,7 +36,7 @@ const SmurfForm = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        loading: state.post.loading
+        loading: state.loading
     }
 }
 

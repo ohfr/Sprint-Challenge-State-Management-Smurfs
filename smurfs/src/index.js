@@ -9,11 +9,11 @@ import { reducer as postReducer } from './reducers/postSmurf';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
-const rootReducer = combineReducers({
-    fetch: fetchReducer,
-    post: postReducer
-})
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
+// const rootReducer = combineReducers({
+//     fetch: fetchReducer,
+//     post: postReducer
+// })
+const store = createStore(fetchReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(<Provider store={store}>
     <App />
