@@ -14,6 +14,7 @@ export const DELETE_SMURF_ERROR = "DELETE_SMURF_ERROR";
 export const EDIT_SMURF_START = "EDIT_SMURF_START";
 export const EDIT_SMURF_SUCCESS = "EDIT_SMURF_SUCCESS";
 export const EDIT_SMURF_ERROR = "EDIT_SMURF_ERROR";
+export const EDIT_SMURF_CANCEL = "EDIT_SMURF_CANCEL";
 
 
 
@@ -48,6 +49,10 @@ export const editSmurf = (id, smurf) => dispatch => {
         .catch(err => dispatch({ type: EDIT_SMURF_ERROR, payload: err }))
 }
 
-export const setEdit = () => dispatch => {
-    dispatch({ type: EDIT_SMURF_START })
+export const setEdit = (smurf) => dispatch => {
+    dispatch({ type: EDIT_SMURF_START, payload: smurf })
+}
+
+export const cancelEdit = () => dispatch => {
+    dispatch({ type: EDIT_SMURF_CANCEL })
 }

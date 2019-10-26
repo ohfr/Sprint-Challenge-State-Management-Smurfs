@@ -42,7 +42,7 @@ const Smurf = (props) => {
 
     return (
         <div className={classes.smurf}>
-            {
+            {/* {
             props.editing ? (
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder={props.name} name="name" value={smurf.name} onChange={handleChange} />
@@ -54,17 +54,17 @@ const Smurf = (props) => {
             )
             
             : 
-            (
+            ( */}
             <div className={classes.singleSmurf}>
                 <h2>{props.name}</h2>
                 <p>{props.age}</p>
                 <p>{props.height}</p>
-                <button className={classes.button} onClick={props.setEdit}>Edit</button>
+                <button className={classes.button} onClick={() => props.setEdit(props.smurf)}>Edit</button>
                 <button className={classes.button} onClick={(e) => props.handleDelete(props.id)}>Delete</button>
             </div>
-            )   
+            {/* )   
 
-            }
+            } */}
         </div>
     )
 }

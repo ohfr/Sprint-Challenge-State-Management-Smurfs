@@ -1,10 +1,11 @@
-import { FETCH_SMURF_START, FETCH_SMURF_SUCCESS, FETCH_SMURF_ERROR, DELETE_SMURF_ERROR, DELETE_SMURF_START, DELETE_SMURF_SUCCESS, POST_SMURF_ERROR, POST_SMURF_START, POST_SMURF_SUCCESS, EDIT_SMURF_START, EDIT_SMURF_SUCCESS, EDIT_SMURF_ERROR} from '../actions/smurf';
+import { FETCH_SMURF_START, FETCH_SMURF_SUCCESS, FETCH_SMURF_ERROR, DELETE_SMURF_ERROR, DELETE_SMURF_START, DELETE_SMURF_SUCCESS, POST_SMURF_ERROR, POST_SMURF_START, POST_SMURF_SUCCESS, EDIT_SMURF_START, EDIT_SMURF_SUCCESS, EDIT_SMURF_ERROR, EDIT_SMURF_CANCEL} from '../actions/smurf';
 
 const initialState = {
     smurfs: [],
     loading: false,
     err: '',
     editing: false,
+    editingSmurf: {}
 }
 
 export const reducer = (state=initialState, action) => {
@@ -59,17 +60,26 @@ export const reducer = (state=initialState, action) => {
         case EDIT_SMURF_START:
             return {
                 ...state,
-                editing: !state.editing
+                editing: true,
+                editingSmurf: action.payload
             }
         case EDIT_SMURF_SUCCESS:
             return {
                 ...state,
-                smurfs: action.payload
+                smurfs: action.payload,
+                editingSmurf: {},
+                editing: false,
             }
         case EDIT_SMURF_ERROR:
             return {
                 ...state,
                 err: action.payload
+            }
+        case EDIT_SMURF_CANCEL:
+            return {
+                ...state,
+                editing: false,
+                editingSmurf: {}
             }
         default:
             return state;
