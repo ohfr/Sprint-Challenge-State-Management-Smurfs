@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 const Smurfs = (props) => {
     useEffect(() => {
         props.fetchSmurf();
-    }, [])
+    }, [props.added.length])
     return (
         <div>
             {props.smurfs.length && props.smurfs.map((cur, index) => {
@@ -20,7 +20,8 @@ const mapStateToProps = (state) => {
     return {
         smurfs: state.fetch.smurfs,
         loading: state.fetch.loading,
-        err: state.fetch.err
+        err: state.fetch.err,
+        added: state.post.smurfs
     }
 }
 
